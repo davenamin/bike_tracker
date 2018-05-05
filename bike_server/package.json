@@ -1,18 +1,27 @@
 {
-  "name": "bike-server",
-  "version": "0.0.0",
-  "private": true,
+  "name": "bikemap",
+  "version": "0.0.1",
+  "description": "What am I about?",
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node server.js"
   },
   "dependencies": {
-    "body-parser": "~1.18.2",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.9",
-    "express": "~4.15.5",
-    "morgan": "~1.9.0",
-    "pg": "7.4.1",
-    "pug": "2.0.0-beta11",
-    "serve-favicon": "~2.4.5"
-  }
+    "express": "^4.16.3",
+    "togeojson": "^0.16.0",
+    "mongoose": "^5.0.17",
+    "pug": "^2.0.3",
+    "jsdom": "^11.10.0"
+  },
+  "engines": {
+    "node": "9.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/my-glitch-app"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ]
 }
