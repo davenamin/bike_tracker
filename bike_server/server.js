@@ -9,7 +9,9 @@ const app = express();
 const togeojson = require('togeojson');
 const fs = require('fs');
 const jsdom = require("jsdom");
-const { JSDOM } = jsdom;
+const {
+  JSDOM
+} = jsdom;
 
 // use pug
 app.set('view engine', 'pug');
@@ -22,9 +24,14 @@ app.get('/', function (req, res) {
 });
 
 // Simple in-memory store
-var gpx = new JSDOM(fs.readFileSync('examples/20180505.gpx', 'utf8')).window.document;
+var data = [];
 
-var data = togeojson.gpx(gpx);
+fs.readdir('examples', (err, files) => {
+  files.forEach(function (file) {
+    var gpx = new JSDOM(fs.readFileSync('examples/' + file, 'utf8')).window.document;
+    data.push(togeojson.gpx(gpx));
+  });
+});
 
 app.get("/data", (request, response) => {
   response.send(data);
